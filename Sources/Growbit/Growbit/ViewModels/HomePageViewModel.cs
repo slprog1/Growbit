@@ -1,4 +1,7 @@
+using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Growbit.Models;
 using Growbit.Services;
 
 namespace Growbit.ViewModels;
@@ -8,11 +11,39 @@ public partial class HomePageViewModel: BaseViewModel
     public HomePageViewModel(INavigationService navigationService) : base(navigationService)
     {
     }
+    
+    [ObservableProperty]
+    ObservableCollection<Habit> _habits = new ();
 
     [RelayCommand]
     private async Task AddNewHabit()
     {
-        await NavigationService.PushModalAsync<AddNewHabitPageViewModel>();
+        //await NavigationService.PushModalAsync<AddNewHabitPageViewModel>();
+        
+        Habits.Add(new Habit()
+        {
+            Name = "Running",
+            Description = "New Running Habit description",
+            IsCompleted = false
+        });
+    }
+
+    [RelayCommand]
+    private async Task RemoveHabit(Habit habit)
+    {
+        
+    }
+
+    [RelayCommand]
+    private async Task RemoveAllHabits()
+    {
+        
+    }
+
+    [RelayCommand]
+    private async Task OpenHabit(Habit habit)
+    {
+        
     }
 
     protected internal override async Task OnNavigatedTo()

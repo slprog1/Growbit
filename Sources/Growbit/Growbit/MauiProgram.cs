@@ -1,4 +1,5 @@
-﻿using Growbit.Services;
+﻿using CommunityToolkit.Maui;
+using Growbit.Services;
 using Growbit.ViewModels;
 using Growbit.Views;
 using Microsoft.Extensions.Logging;
@@ -12,6 +13,7 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
+            .UseMauiCommunityToolkit()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

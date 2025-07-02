@@ -48,7 +48,7 @@ public class NavigationService : INavigationService
 
         var page = (Page)_serviceProvider.GetRequiredService(pageType);
         if(page is ContentPage contentPage)
-            await _appProvider.GetNavigation()?.PushAsync(contentPage);
+            await _appProvider.GetNavigation()?.PushModalAsync(contentPage);
     }
 
     public async Task PopAsync()

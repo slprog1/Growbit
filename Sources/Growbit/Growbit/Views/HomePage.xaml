@@ -2,8 +2,45 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:converters="clr-namespace:Growbit.Converters"
+             NavigationPage.HasNavigationBar="False"
              x:Class="Growbit.Views.HomePage">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:IsListNotNullOrEmptyConverter x:Key="IsListNotNullOrEmptyConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
-        
+        <Grid RowDefinitions="auto, auto, *" Padding="16, 8" RowSpacing="16">
+            <ImageButton Command="{Binding AddNewHabitCommand}" Source="plus_icon_sign" Grid.Row="0" HorizontalOptions="End" IsVisible="{Binding Habits.Count, Converter={StaticResource IsListNotNullOrEmptyConverter}}"/>
+            <Line Grid.Row="1" X2="900" StrokeThickness="1" Stroke="{StaticResource Primary}" HeightRequest="2" Fill="{StaticResource Primary}"/>
+            
+            <Grid RowDefinitions="auto, *" Grid.Row="2" RowSpacing="32">
+            <Label Grid.Row="0" FontSize="Medium" HorizontalOptions="Start" Text="Today's status" IsVisible="{Binding Habits.Count, Converter={StaticResource IsListNotNullOrEmptyConverter}}"/>
+            
+            <CollectionView Grid.Row="1" ItemsSource="{Binding  Habits}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*, 40">
+                            <Label Text="{Binding Name}" Grid.Column="0" HorizontalOptions="Start"/>
+                            <CheckBox IsChecked="{Binding IsCompleted}" Grid.Column="1"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                
+                <CollectionView.EmptyView>
+                    <Grid RowDefinitions="*, auto, *">
+                        <Label Text="Habits" Grid.Row="0" VerticalOptions="End"/>
+                        <Label Text="No habits so far. Add a new one to start your growth" Grid.Row="1"/>
+                        
+                        <ImageButton Command="{Binding AddNewHabitCommand}" Source="plus_icon" Grid.Row="2" VerticalOptions="Center"/>
+                    </Grid>
+                </CollectionView.EmptyView>
+            </CollectionView>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

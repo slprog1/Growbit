@@ -1,2 +1,14 @@
 
 .DS_Store
+
+Sources/Growbit/.idea/.idea.Growbit/.idea/
+
+Sources/Growbit/Growbit/bin/Debug/net9.0-ios/iossimulator-arm64/
+
+Sources/Growbit/Growbit/obj/Debug/net9.0-android/
+
+Sources/Growbit/Growbit/obj/Debug/net9.0-ios/iossimulator-arm64/
+
+Sources/Growbit/Growbit/obj/Debug/net9.0-maccatalyst/maccatalyst-arm64/
+
+Sources/Growbit/Growbit/obj/
