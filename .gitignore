@@ -12,3 +12,5 @@ Sources/Growbit/Growbit/obj/Debug/net9.0-ios/iossimulator-arm64/
 Sources/Growbit/Growbit/obj/Debug/net9.0-maccatalyst/maccatalyst-arm64/
 
 Sources/Growbit/Growbit/obj/
+
+*.user

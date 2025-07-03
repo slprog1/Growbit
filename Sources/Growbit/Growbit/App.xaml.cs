@@ -21,7 +21,7 @@ public partial class App : Application, IAppProvider
 
     public INavigation? GetNavigation()
     {
-        var last = Windows.LastOrDefault().Page as NavigationPage;
+        var last = Windows.FirstOrDefault().Page as NavigationPage;
         return last?.Navigation;
     }
 }

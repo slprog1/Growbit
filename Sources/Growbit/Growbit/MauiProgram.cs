@@ -37,6 +37,7 @@ public static class MauiProgram
     {
         builder.RegisterPage<InitialPageViewModel,InitialPage>(mappings);
         builder.RegisterPage<HomePageViewModel, HomePage>(mappings);
+        builder.RegisterPage<AddNewHabitPageViewModel, AddNewHabitPage>(mappings);
     }
 
     private static void RegisterPage<TPageViewModel, TPage>(this IServiceCollection services,

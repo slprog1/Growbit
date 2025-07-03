@@ -18,14 +18,7 @@ public partial class HomePageViewModel: BaseViewModel
     [RelayCommand]
     private async Task AddNewHabit()
     {
-        //await NavigationService.PushModalAsync<AddNewHabitPageViewModel>();
-        
-        Habits.Add(new Habit()
-        {
-            Name = "Running",
-            Description = "New Running Habit description",
-            IsCompleted = false
-        });
+        await NavigationService.PushAsync<AddNewHabitPageViewModel>();
     }
 
     [RelayCommand]

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Growbit.Views.AddNewHabitPage">
+    <ContentPage.Content>
+        <Grid>
+            <VerticalStackLayout BindingContext="{Binding Habit}">
+                <Entry Text="{Binding Name}" Placeholder="Habit name"/>
+                
+                <Grid ColumnDefinitions="*, 60, 40">
+                    <Label Text="Duration" HorizontalOptions="Start"/>
+                    <Entry Text="" Keyboard="Numeric"/>
+                    <Stepper Minimum="1" Increment="5"/>
+                </Grid>
+                
+                <Grid>
+                    <Label Text="Frequency" HorizontalOptions="Start"/>
+                    <Label Text="{Binding Frequency}"/>
+                    <Button Text="Select Date Time" Command="{Binding SelectFrequencyCommand}"/>
+                </Grid>
+            </VerticalStackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
